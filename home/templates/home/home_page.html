@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+{% load static %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+<div id="home-body" class="container-fluid">
+  <div class="row">
+    <div class="left-side col">
+      <h1>Hi, I'm Jordan Hoover - a full-stack developer from Dallas, Texas.</h1>
+      <p>
+          I'm a web developer currently working in Dallas, Texas. I've worked with brands such as the Texas Parks and
+          Wildlife Foundation, We Will Not Be Tamed, and more.
+      </p>
+{#        {{ page.body|richtext }}#}
+      <div class="contact">
+        <a href="mailto:jordan@hoovermld.com">Contact Me</a>
+      </div>
+      <div class="portfolio-links">
+        <a href="https://codepen.io/jhoover4/">CodePen</a>
+        <a href="https://github.com/jhoover4">GitHub</a>
+      </div>
+    </div>
+    <div class="right-side col">
+      <div class="content-block">
+        <img src="{% static 'img/tpwf-site.jpg' %}">
+      </div>
+      <div class="content-block">
+        <img src="{% static 'img/tpwf-site.jpg' %}">
+        <a href="https://www.tpwf.org/" target="_blank">View this site</a>
+      </div>
+      <div class="content-block">
+        <img src="{% static 'img/wwnbt-site.jpg' %}">
+        <a href="https://www.wewillnotbetamed.org/" target="_blank">View this site</a>
+      </div>
+    </div>
+  </div>
+</div>
+<footer>
+  <h1>Don't be shy.</h1>
+  <a href="mailto:jordan@hoovermld.com">Say Hello</a>
+</footer>
+{% endblock content %}
