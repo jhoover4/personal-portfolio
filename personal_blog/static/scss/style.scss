@@ -6,9 +6,6 @@ body {
 
 .container-fluid {
   color: #222;
-  .row {
-    position: relative;
-  }
 }
 
 h1,
@@ -26,9 +23,6 @@ a {
 }
 
 .left-side {
-  position: absolute;
-  top: 0;
-  left: 0;
   padding: 15% 10%;
   &.col {
     max-width: 40%;
@@ -46,7 +40,6 @@ a {
 
 .right-side {
   float: right;
-  left: 40%;
   &.col {
     max-width: 60%;
   }

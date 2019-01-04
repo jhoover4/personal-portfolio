@@ -1,7 +1,7 @@
 $( document ).ready(function() {
 
   window.onscroll = function() {
-    removeFixed();
+    // removeFixed();
   };
 
   const bodyRow = $("#home-body .row");
@@ -11,14 +11,14 @@ $( document ).ready(function() {
 
   let offset = footer.offset().top;
 
-  function removeFixed() {
-    if (window.pageYOffset >= offset) {
-      leftSideDiv.css("position", "initial");
-      leftSideDiv.fadeOut();
-    }
-    else {
-      leftSideDiv.css("position", "fixed");
-      leftSideDiv.fadeIn();
-    }
-  }
+  // function removeFixed() {
+  //   if (window.pageYOffset >= offset) {
+  //     leftSideDiv.css("position", "initial");
+  //     leftSideDiv.fadeOut();
+  //   }
+  //   else {
+  //     leftSideDiv.css("position", "fixed");
+  //     leftSideDiv.fadeIn();
+  //   }
+  // }
 });

@@ -6,40 +6,48 @@
 {% block body_class %}template-homepage{% endblock %}
 
 {% block content %}
-<div id="home-body" class="container-fluid">
-  <div class="row">
-    <div class="left-side col">
-      <h1>Hi, I'm Jordan Hoover - a full-stack developer from Dallas, Texas.</h1>
-      <p>
-          I'm a web developer currently working in Dallas, Texas. I've worked with brands such as the Texas Parks and
-          Wildlife Foundation, We Will Not Be Tamed, and more.
-      </p>
-{#        {{ page.body|richtext }}#}
-      <div class="contact">
-        <a href="mailto:jordan@hoovermld.com">Contact Me</a>
-      </div>
-      <div class="portfolio-links">
-        <a href="https://codepen.io/jhoover4/">CodePen</a>
-        <a href="https://github.com/jhoover4">GitHub</a>
-      </div>
+    <div id="home-body" class="container-fluid">
+        <div class="row">
+            <div class="left-side col">
+                {% for block in page.portfolio_information %}
+                    {% if block.block_type == 'heading' %}
+                        <h1>{{ block.value }}</h1>
+                    {% elif block.block_type == 'paragraph' %}
+                        <p>{{ block.value }}</p>
+                    {% endif %}
+                {% endfor %}
+                <div class="contact">
+                    {% for email in page.contact_email %}
+                        <a href="mailto:{{ email.value }}">Contact Me</a>
+                    {% endfor %}
+                </div>
+                <div class="portfolio-links">
+                    {% for link in page.external_portfolio_links %}
+                        <a href="{{ link.value.url }}">{{ link.value.text }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="right-side col">
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        {% include_block page.project_images %}
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="right-side col">
-      <div class="content-block">
-        <img src="{% static 'img/tpwf-site.jpg' %}">
-      </div>
-      <div class="content-block">
-        <img src="{% static 'img/tpwf-site.jpg' %}">
-        <a href="https://www.tpwf.org/" target="_blank">View this site</a>
-      </div>
-      <div class="content-block">
-        <img src="{% static 'img/wwnbt-site.jpg' %}">
-        <a href="https://www.wewillnotbetamed.org/" target="_blank">View this site</a>
-      </div>
-    </div>
-  </div>
-</div>
-<footer>
-  <h1>Don't be shy.</h1>
-  <a href="mailto:jordan@hoovermld.com">Say Hello</a>
-</footer>
+    <footer>
+        <h1>Don't be shy.</h1>
+        {% for email in page.contact_email %}
+            <a href="mailto:{{ email.value }}">Say Hello</a>
+        {% endfor %}
+    </footer>
 {% endblock content %}
