@@ -1,24 +1,43 @@
-$( document ).ready(function() {
+$(document).ready(function () {
+    const $hamburger = $(".hamburger");
+    navToggle();
 
-  window.onscroll = function() {
-    // removeFixed();
-  };
+    //hamburger
+    $hamburger.click(function () {
+        $(this).toggleClass("is-active");
 
-  const bodyRow = $("#home-body .row");
-  const leftSideDiv = $("#home-body .left-side");
-  const lastImgDiv = $("#home-body .content-block:last-of-type");
-  const footer = $("footer");
-
-  let offset = footer.offset().top;
-
-  // function removeFixed() {
-  //   if (window.pageYOffset >= offset) {
-  //     leftSideDiv.css("position", "initial");
-  //     leftSideDiv.fadeOut();
-  //   }
-  //   else {
-  //     leftSideDiv.css("position", "fixed");
-  //     leftSideDiv.fadeIn();
-  //   }
-  // }
+    });
 });
+
+function navToggle() {
+    const $nav = $("nav");
+    const $main = $("#main");
+    const $menu = $(".menuitems");
+    const $links = $(".portfolio-links");
+
+    //to close
+    if ($nav.height() > 50) {
+        $nav.height(50);
+        $main.css("marginTop", "50px");
+
+        $menu.each(function (index) {
+                $(this).css({
+                    opacity: "0.0",
+                    marginTop: "100px"
+                });
+            }
+        );
+        $links.css("marginTop", "40%");
+    } else {
+        $nav.height(275);
+        $main.css("marginTop", "275px");
+        $menu.each(function (index) {
+                $(this).css({
+                    opacity: "1.0",
+                    marginTop: "0px"
+                });
+            }
+        );
+        $links.css("marginTop", "25%");
+    }
+}

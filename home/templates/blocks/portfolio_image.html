@@ -6,8 +6,8 @@
     {% else %}
         <div class="carousel-item">
     {% endif %}
-{% image portfolio_item.project_image width-1000 %}
-{#            <img class="d-block w-100" src="..." alt="First slide">#}
+{% image portfolio_item.project_image width-1000 as imagedata %}
+<img src="{{ imagedata.url }}" class="d-block portfolio-img" alt="{{ imagedata.alt }}"/>
 <div class="carousel-caption d-none d-md-block">
     <a href="{{ portfolio_item.project_url }}" target="_blank">View this site</a>
 </div>

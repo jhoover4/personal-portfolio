@@ -24,13 +24,11 @@ a {
 
 .left-side {
   padding: 15% 10%;
-  &.col {
-    max-width: 40%;
-  }
 }
 
 .content-block {
   height: 700px;
+
   a {
     color: #fff;
     text-decoration: underline;
@@ -40,9 +38,6 @@ a {
 
 .right-side {
   float: right;
-  &.col {
-    max-width: 60%;
-  }
 }
 
 .contact a {
@@ -50,6 +45,101 @@ a {
   text-decoration: underline;
 }
 
+.carousel-caption {
+  text-align: left;
+
+  a {
+    color: white;
+    text-decoration: underline solid white;
+    text-transform: capitalize;
+  }
+}
+
+.portfolio-links {
+  margin-top: 40%;
+
+  a {
+    font-family: 'Muli', sans-serif;
+    font-weight: 300;
+    text-transform: lowercase;
+    padding-right: 7%;
+
+    &:hover {
+      color: black;
+      text-decoration: underline solid black;
+    }
+  }
+}
+
+.email-footer {
+  text-align: center;
+}
+
 footer {
   padding: 30%;
 }
+
+nav {
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  transition: all 0.4s ease-in-out;
+  padding-top: 0px;
+
+  ul {
+    margin-top: 30px;
+    text-align: left;
+    list-style: none;
+  }
+
+  a:hover {
+    color: black;
+  }
+}
+
+.menulist {
+  width: 200px;
+}
+
+.menuitems {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-decoration: none;
+  list-style: none;
+  font-size: 2rem;
+  display: inline-block;
+  text-align: left;
+  color: black;
+  opacity: 0.0;
+  transition: all .5s ease-in-out;
+
+  &:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 1px;
+    background: #fff;
+    transition: width .2s;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+.portfolio-links {
+  transition: all .5s;
+}
+
+.portfolio-img {
+  height: auto;
+  @media (max-width: 576px) {
+    max-width: 100%;
+    border-radius: .25rem;
+  }
+}
+
+@import "./hamburgers/hamburgers.scss";

@@ -8,35 +8,50 @@
 {% block content %}
     <div id="home-body" class="container-fluid">
         <div class="row">
-            <div class="left-side col">
-                {% for block in page.portfolio_information %}
-                    {% if block.block_type == 'heading' %}
-                        <h1>{{ block.value }}</h1>
-                    {% elif block.block_type == 'paragraph' %}
-                        <p>{{ block.value }}</p>
-                    {% endif %}
-                {% endfor %}
-                <div class="contact">
-                    {% for email in page.contact_email %}
-                        <a href="mailto:{{ email.value }}">Contact Me</a>
+            <div class="col-sm-6">
+                <nav id="navigation">
+                    <button onclick="navToggle()" class="hamburger hamburger--spin" type="button">
+                  <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                  </span>
+                    </button>
+                    <ul class="menulist">
+                        <li><a class="menuitems" href="#">Portfolio</a></li>
+                        <li><a class="menuitems" href="#">Blog</a></li>
+                    </ul>
+                </nav>
+                <div class="left-side main">
+                    {% for block in page.portfolio_information %}
+                        {% if block.block_type == 'heading' %}
+                            <h1>{{ block.value }}</h1>
+                        {% elif block.block_type == 'paragraph' %}
+                            <p>{{ block.value }}</p>
+                        {% endif %}
                     {% endfor %}
-                </div>
-                <div class="portfolio-links">
-                    {% for link in page.external_portfolio_links %}
-                        <a href="{{ link.value.url }}">{{ link.value.text }}</a>
-                    {% endfor %}
+                    <div class="contact">
+                        {% for email in page.contact_email %}
+                            <a href="mailto:{{ email.value }}">Contact Me</a>
+                        {% endfor %}
+                    </div>
+                    <div class="portfolio-links">
+                        {% for link in page.external_portfolio_links %}
+                            <a href="{{ link.value.url }}">{{ link.value.text }}</a>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
-            <div class="right-side col">
+            <div class="right-side col-sm-6">
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         {% include_block page.project_images %}
                     </div>
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
+                       data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="sr-only">Previous</span>
                     </a>
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                       data-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
@@ -45,9 +60,11 @@
         </div>
     </div>
     <footer>
-        <h1>Don't be shy.</h1>
-        {% for email in page.contact_email %}
-            <a href="mailto:{{ email.value }}">Say Hello</a>
-        {% endfor %}
+        <div class="email-footer contact">
+            <h1>Don't be shy.</h1>
+            {% for email in page.contact_email %}
+                <a href="mailto:{{ email.value }}">Say Hello</a>
+            {% endfor %}
+        </div>
     </footer>
 {% endblock content %}
