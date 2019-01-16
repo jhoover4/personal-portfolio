@@ -11,7 +11,7 @@
                     <span class="hamburger-inner"></span>
                   </span>
         </button>
-        <ul class="menulist underline-expand">
+        <ul class="menulist">
             <li><a class="menuitems" href="{% slugurl 'home' %}">Home</a></li>
             <li><a class="menuitems" href="#">Portfolio</a></li>
             <li><a class="menuitems" href="{% slugurl 'blog' %}">Blog</a></li>
@@ -22,12 +22,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
                 <div class="intro">{{ page.intro|richtext }}</div>
+
                 {% for post in page.get_children %}
-                    <div class="blog-post-listing pt-3 pb-3">
-                        <h2 class="underline-expand"><a href="{% pageurl post %}">{{ post.title|title }}</a></h2>
-                        <p class="meta"><i class="far fa-calendar-alt pr-1"></i>{{ post.specific.date }}</p>
-                        {{ post.specific.intro }}
-                    </div>
+                    <h2><a href="{% pageurl post %}">{{ post.title }}</a></h2>
+                    <p>{{ post.specific.date }}</p>
+                    {{ post.specific.intro }}
+                    {{ post.specific.body|richtext }}
                 {% endfor %}
             </div>
         </div>

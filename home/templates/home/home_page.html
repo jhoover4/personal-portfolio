@@ -15,12 +15,13 @@
                     <span class="hamburger-inner"></span>
                   </span>
                     </button>
-                    <ul class="menulist">
+                    <ul class="menulist underline-expand">
+                        <li><a class="menuitems" href="{% slugurl 'home' %}">Home</a></li>
                         <li><a class="menuitems" href="#">Portfolio</a></li>
-                        <li><a class="menuitems" href="#">Blog</a></li>
+                        <li><a class="menuitems" href="{% slugurl 'blog' %}">Blog</a></li>
                     </ul>
                 </nav>
-                <div class="left-side main">
+                <div class="left-side main fade-in">
                     {% for block in page.portfolio_information %}
                         {% if block.block_type == 'heading' %}
                             <h1>{{ block.value }}</h1>

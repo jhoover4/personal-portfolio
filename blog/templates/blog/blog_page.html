@@ -5,13 +5,30 @@
 {% block body_class %}template-blogpage{% endblock %}
 
 {% block content %}
-    <h1>{{ page.title }}</h1>
-    <p class="meta">{{ page.date }}</p>
-
-    <div class="intro">{{ page.intro }}</div>
-
-    {{ page.body|richtext }}
-
-    <p><a href="{{ page.get_parent.url }}">Return to blog</a></p>
+    <nav id="navigation" class="mt-3 pl-4">
+        <button onclick="navToggle()" class="hamburger hamburger--spin" type="button">
+                  <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                  </span>
+        </button>
+        <ul class="menulist underline-expand">
+            <li><a class="menuitems" href="{% slugurl 'home' %}">Home</a></li>
+            <li><a class="menuitems" href="#">Portfolio</a></li>
+            <li><a class="menuitems" href="{% slugurl 'blog' %}">Blog</a></li>
+        </ul>
+    </nav>
+    <div class="container mt-5 mb-5">
+        <h1 class="title">{{ page.title|title }}</h1>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <p class="meta"><i class="far fa-calendar-alt pr-1"></i> {{ page.date }}</p>
+                <div class="intro lead px-3 mt-4 mb-5"><p>{{ page.intro }}</p></div>
+                <div class="blog-post-body pl-2 mt-5">
+                    <div class="blog-body mt-2">{{ page.body|richtext }}</div>
+                    <p class="mt-5"><a class="underline-expand" href="{{ page.get_parent.url }}">Return to blog</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}

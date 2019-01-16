@@ -1,5 +1,6 @@
 $(document).ready(function () {
     const $hamburger = $(".hamburger");
+    const $mainHomePageDiv = $(".fade-in");
     navToggle();
 
     //hamburger
@@ -7,6 +8,9 @@ $(document).ready(function () {
         $(this).toggleClass("is-active");
 
     });
+
+    //fade-in
+    $mainHomePageDiv.show().animate({opacity: 1, top: 0}, 1400);
 });
 
 function navToggle() {
@@ -29,8 +33,8 @@ function navToggle() {
         );
         $links.css("marginTop", "40%");
     } else {
-        $nav.height(275);
-        $main.css("marginTop", "275px");
+        $nav.height(300);
+        $main.css("marginTop", "300px");
         $menu.each(function (index) {
                 $(this).css({
                     opacity: "1.0",
