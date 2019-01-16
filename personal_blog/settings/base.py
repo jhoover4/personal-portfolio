@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'storages',
+    'wagtailcodeblock',
+
     'blog'
 ]
 
@@ -148,7 +150,22 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 # Wagtail settings
-WAGTAIL_SITE_NAME = "personal_blog"
+WAGTAIL_SITE_NAME = 'personal_blog'
+WAGTAIL_CODE_BLOCK_THEME = 'okaidia'
+WAGTAIL_CODE_BLOCK_LANGUAGES = (
+    ('bash', 'Bash/Shell'),
+    ('css', 'CSS'),
+    ('diff', 'diff'),
+    ('git', 'Git'),
+    ('html', 'HTML'),
+    ('java', 'Java'),
+    ('javascript', 'Javascript'),
+    ('json', 'JSON'),
+    ('php', 'PHP'),
+    ('python', 'Python'),
+    ('scss', 'SCSS'),
+    ('yaml', 'YAML'),
+)
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
