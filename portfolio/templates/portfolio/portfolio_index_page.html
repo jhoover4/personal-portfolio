@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+
+{% block title %}{{ page.seo_title }}{% endblock %}
+{% block metadesc %}{{ page.search_description }}{% endblock %}
+
+{% block body_class %}portfolio{% endblock %}
+
+{% block content %}
+    {% include 'navigation.html' %}
+    <div class="container mt-5 gallery-wrapper">
+        <header>
+            <h1 class="title">{{ page.intro_title }}</h1>
+            {{ page.intro_text|richtext }}
+        </header>
+        {% include_block page.portfolio_items %}
+    </div>
+{% endblock %}

@@ -1,4 +1,7 @@
 {% load static wagtailuserbar %}
+{% load static %}
+
+{% block breadcrumbs %}{% endblock breadcrumbs %}
 
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -29,7 +32,7 @@
               crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 
-        {% block extra_css %}
+        {% block extra_head_bottom %}
             {# Override this in templates to add extra stylesheets #}
         {% endblock %}
     </head>

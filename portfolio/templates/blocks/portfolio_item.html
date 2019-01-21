@@ -1,0 +1,22 @@
+{% load wagtailimages_tags %}
+
+<div class="gallery-container">
+    {% for portfolio_item in value %}
+        {% image portfolio_item.image fill-500x500 as img_thumb %}
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 cell-container gallery-thumbnail-container">
+            <a href="{{ portfolio_item.url }}" title="{{ img_thumb.alt }}" target="_blank">
+                <img src="{{ img_thumb.url }}" alt="{{ img_thumb.alt }}" class="gallery-thumbnail image">
+            </a>
+            <a class="overlay" href="{{ portfolio_item.url }}" title="{{ img_thumb.alt }}" target="_blank">
+                <div class="portfolio-item-title px-md-5">
+                    <p>{{ portfolio_item.title }}</p>
+                    <div class="divider"></div>
+                    {% for language in portfolio_item.languages_used %}
+                        <i class="fab {{ language }}"></i>
+                    {% endfor %}
+                </div>
+                <span></span>
+            </a>
+        </div>
+    {% endfor %}
+</div>

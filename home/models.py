@@ -13,7 +13,6 @@ class ProjectImageBlock(blocks.StructBlock):
 
     class Meta:
         icon = 'image'
-        # template = 'blocks/portfolio_image.html'
 
 
 class ExternalPortfolioLink(blocks.StructBlock):
@@ -28,7 +27,7 @@ class ExternalPortfolioLink(blocks.StructBlock):
 
 class HomePage(Page):
     """Customized portfolio homepage with editing capabilities."""
-    
+
     contact_email = StreamField([('contact_email', blocks.EmailBlock())], blank=True)
 
     portfolio_information = StreamField([

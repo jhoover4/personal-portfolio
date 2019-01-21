@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'storages',
     'wagtailcodeblock',
 
-    'blog'
+    'blog',
+    'portfolio'
 ]
 
 MIDDLEWARE = [
