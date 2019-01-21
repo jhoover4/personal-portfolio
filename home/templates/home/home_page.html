@@ -25,7 +25,7 @@
                     </div>
                     <div class="portfolio-links">
                         {% for link in page.external_portfolio_links %}
-                            <a href="{{ link.value.url }}">{{ link.value.text }}</a>
+                            <a href="{{ link.value.external_url }}" target="_blank">{{ link.value.text }}</a>
                         {% endfor %}
                     </div>
                 </div>
