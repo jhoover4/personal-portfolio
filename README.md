@@ -1,5 +1,5 @@
 # Personal Portfolio Site
 
-Sourcecode for my personal portfolio, built using Wagtail. Features a portfolio and blog section.
+Source code for my [personal portfolio](https://www.jordanhoover.me), built using [Wagtail](https://wagtail.io). 
 
-_Currently in development_
+Features a [portfolio](https://www.jordanhoover.me/portfolio) and [blog](https://www.jordanhoover.me/blog) section.
