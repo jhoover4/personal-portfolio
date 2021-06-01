@@ -31,7 +31,7 @@ s3transfer==0.1.13
 six==1.12.0
 sqlparse==0.2.4
 Unidecode==1.0.23
-urllib3==1.24.1
+urllib3==1.26.5
 virtualenv==16.0.0
 wagtail==2.4
 wagtailcodeblock==1.14.0.0
