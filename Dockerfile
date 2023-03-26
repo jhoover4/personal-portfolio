@@ -8,6 +8,7 @@ ENV DJANGO_ENV dev
 
 COPY ./requirements.txt /code/requirements.txt
 RUN pip install --upgrade pip
+RUN pip install setuptools==45
 # Install any needed packages specified in requirements.txt
 RUN pip install -r /code/requirements.txt
 RUN pip install gunicorn
